@@ -7,7 +7,7 @@ async fn main() {
 
     let start = std::time::Instant::now();
 
-    let input = lua.create_string("Hello, World!").unwrap();
+    let input = lua.create_string("{set(name):Alice} Hello {get:name}! {if(name):Exists:Does not exist}").unwrap();
     let output_local = lua.create_string("").unwrap();
     lua.globals().set("input", input).unwrap();
     lua.globals().set("output", output_local).unwrap();
